@@ -5,7 +5,12 @@ import Todo from './Todo';
 function TodoList() {
     const [todos, setTodos] = useState([]);
 
-    useEffect(() => populateTodoListItems(), []);
+    useEffect(() => {
+        populateTodoListItems()
+        return () => {
+            // apparantly it does clean up
+        };
+    }, []);
 
     const addTodo = todo => {
         if (!todo.description) {

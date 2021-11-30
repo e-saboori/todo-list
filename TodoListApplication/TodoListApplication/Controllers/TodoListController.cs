@@ -19,6 +19,10 @@ namespace TodoListApplication.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// To get all the todo items
+        /// </summary>
+        /// <returns>A list of todo items</returns>
         [HttpGet]
         public ActionResult<List<TodoItem>> Get()
         {
@@ -37,7 +41,11 @@ namespace TodoListApplication.Controllers
             return StatusCode(500);
         }
 
-
+        /// <summary>
+        /// Add a new item to the list
+        /// </summary>
+        /// <param name="item">The new item to be added</param>
+        /// <returns>Returns 200 if the action was successfull</returns>
         [HttpPost("items")]
         public ActionResult<bool> Post(TodoItem item)
         {
@@ -56,8 +64,13 @@ namespace TodoListApplication.Controllers
             return StatusCode(500);
         }
 
+        /// <summary>
+        /// Update the existing item
+        /// </summary>
+        /// <param name="item">The item that should be updated</param>
+        /// <returns>Returns 200 if the action was successfull</returns>
         [HttpPatch("items/{item.id}")]
-        public ActionResult<bool> Path(TodoItem item)
+        public ActionResult<bool> Patch(TodoItem item)
         {
             try
             {
@@ -74,8 +87,13 @@ namespace TodoListApplication.Controllers
             return StatusCode(500);
         }
 
+        /// <summary>
+        /// Delete an existing item
+        /// </summary>
+        /// <param name="id">Id of the item that should be removed</param>
+        /// <returns>Returns 200 if the action was successfull</returns>
         [HttpDelete("items/{id}")]
-        public ActionResult<IEnumerable<TodoItem>> Delete(int id)
+        public ActionResult<bool> Delete(int id)
         {
             try
             {
