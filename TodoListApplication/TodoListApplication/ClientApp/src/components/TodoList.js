@@ -73,12 +73,13 @@ function TodoList() {
         <>
             <h1>Here you can add, update or delete your todo items...</h1>
             <TodoForm onSubmit={addTodo} />
+            <div width= "400px">
             <Todo
                 todos={todos}
                 completeTodo={completeTodo}
                 removeTodo={removeTodo}
                 updateTodo={updateTodo}
-            />
+            /></div>
         </>
     );
 }

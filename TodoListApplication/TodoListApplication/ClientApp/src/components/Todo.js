@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 
+
+
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     const [edit, setEdit] = useState({
         id: null,
@@ -21,7 +23,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
 
     return todos.map((todo, index) => (
         <div key={index}>
-            <label key={todo.id} width="300"> {todo.description}</label>
+            <label key={todo.id}> {todo.description}</label>
             <input type="checkbox" checked={todo.isCompleted} onChange={() => completeTodo(todo.id)} />
             <button onClick={() => removeTodo(todo.id)} >Delete</button>
             <button onClick={() => setEdit({ id: todo.id, description: todo.text })} >Update</button>

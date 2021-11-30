@@ -7,8 +7,22 @@ code {
   color: #E01A76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+button {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100px;
+}
+
+input {
+    width: 300px;
+}
+
+    input[type=checkbox] {
+        width: 50px;
+    }
+
+label{
+    width: 250px;
 }
