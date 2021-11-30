@@ -20,6 +20,3 @@ is using the interface, meaning that any implementation of that interface (ex: u
 
 ## How to start the solution
 Open the project using Visual Studio that supports .Net5. Start the project - it might take sometime to get npm packages
-
-## Remarks
-Unfortunately, the test cases are missing for UI side
