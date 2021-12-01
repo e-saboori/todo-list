@@ -8,67 +8,65 @@ function TodoList() {
     useEffect(() => {
         //This is to update the list when user goes back to todo list page
         populateTodoListItems()
-        return () => {
-            // apparantly it does clean up
-        };
+        return () => {};
     }, []);
 
-    const addTodo = todo => {
+    const addTodo = async todo => {
         // Only add the item if the description is not empty
         if (!todo.description) {
             return;
         }
 
         // Post the item
-        fetch('todolist/items', {
+        await fetch('todolist/items', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(todo)
-        }).then(() => { populateTodoListItems(); })
+        }).then(async () => { await populateTodoListItems(); })
     };
 
-    const updateTodo = (todoId, newValue) => {
+    const updateTodo = async (todoId, newValue) => {
         if (!newValue.description || /^\s*$/.test(newValue.description)) {
             return;
         }
 
         // Find the todo item that it's id matches the updated todo item
-        todos.map(todo => {
+        todos.map(async todo => {
             if (todo.id === todoId) {
                 todo.description = newValue.description;
             }
 
             // Send the item to server side
-            fetch('todolist/items/' + todo.id, {
+            await fetch('todolist/items/' + todo.id, {
                 method: 'PATCH',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(todo)
-            }).then(() => { populateTodoListItems(); })
+            }).then(async () => { await populateTodoListItems(); })
         });
     };
 
-    const removeTodo = id => {
+    const removeTodo = async id => {
         //Send the delete request to server
-        fetch('todolist/items/' + id, {
+        await fetch('todolist/items/' + id, {
             method: 'DELETE',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: id })
-        }).then(() => { populateTodoListItems(); })
+        }).then(async () => { await populateTodoListItems(); })
     };
 
-    const completeTodo = id => {
+    const completeTodo = async id => {
         //Find the todo item that it's id matched the updated id
-        todos.map(todo => {
+        todos.map(async todo => {
             if (todo.id === id) {
                 todo.isCompleted = !todo.isCompleted;
             }
 
             //Send the update to the server
-            fetch('todolist/items/' + todo.id, {
+            await fetch('todolist/items/' + todo.id, {
                 method: 'PATCH',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(todo)
-            }).then(() => { populateTodoListItems(); })
+            }).then(async () => { await populateTodoListItems(); })
             return;
         });
     };

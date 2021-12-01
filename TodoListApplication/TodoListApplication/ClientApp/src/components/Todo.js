@@ -22,8 +22,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     return todos.map((todo, index) => (
         <div key={index}>
             <label key={todo.id}> {todo.description}</label>
-            <input type="checkbox" checked={todo.isCompleted} onChange={() => completeTodo(todo.id)} />
-            <button onClick={() => removeTodo(todo.id)} >Delete</button>
+            <input type="checkbox" checked={todo.isCompleted} onChange={async () => await completeTodo(todo.id)} />
+            <button onClick={async () => await removeTodo(todo.id)} >Delete</button>
             <button onClick={() => setEdit({ id: todo.id, description: todo.description })} >Update</button>
         </div>
     ));
