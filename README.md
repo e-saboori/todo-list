@@ -23,4 +23,4 @@ Open the project using Visual Studio that supports .Net5. Start the project - it
 
 ## Remarks
 Cors can be added in startup to allow cros origin access to the API
-The application is deployed on Azuer, you can access it via https://todolistapplication20211130222711.azurewebsites.net/
+The application is deployed on Azuer, you can access it via https://todolistapplication20211130230627.azurewebsites.net/
