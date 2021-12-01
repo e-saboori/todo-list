@@ -15,6 +15,12 @@ namespace TodoListApplication.Models
             _logger = logger;
         }
 
+        /// <summary>
+        /// search the items in the list to find the one that matches the given id
+        /// </summary>
+        /// <param name="id">The id that should be found</param>
+        /// <param name="todoItem">The return item if it was found</param>
+        /// <returns>Returns true if the item was found, otherwise return false</returns>
         private bool TryGetItem(int id, out TodoItem todoItem)
         {
             foreach(var item in _list)

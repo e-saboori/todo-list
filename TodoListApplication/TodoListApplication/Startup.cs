@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +20,12 @@ namespace TodoListApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // This is to enable cors policy - If there is a need to call the API from different origin
+            //services.AddCors(options => {
+            //    options.AddDefaultPolicy(builder => {
+            //        builder.WithOrigins("http://example.com");
+            //    });
+            //});
 
             services.AddControllersWithViews();
 
@@ -31,6 +36,7 @@ namespace TodoListApplication
             });
 
             // Added dependencies
+            // The implementation can be replace by DB one
             services.AddSingleton<ITodoList, TodoList>();
         }
 
@@ -52,6 +58,8 @@ namespace TodoListApplication
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            // Enabling CORS (it is not needed now since UI has the same origin as backend)
+            // app.UseCors();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

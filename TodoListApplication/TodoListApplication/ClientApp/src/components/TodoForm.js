@@ -26,10 +26,11 @@ function TodoForm(props) {
 
     return (
         <form onSubmit={handleSubmit}>
+            {/*If it's on edit mode, when we are in updating mode */}
             {props.edit ? (
                 <>
                     <input
-                        placeholder='Update your item'
+                        placeholder={props.edit.description}
                         value={input}
                         onChange={handleChange}
                         name='text'

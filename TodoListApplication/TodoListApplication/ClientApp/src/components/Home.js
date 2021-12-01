@@ -32,7 +32,8 @@ export class Home extends Component {
                 <h3>How to start the solution</h3>
                 <p>Open the project using Visual Studio that supports .Net5. Start the project - it might take sometime to get npm packages</p>
                 <h3>Remarks</h3>
-                <p>Unfortunately, the test cases are missing for UI side</p>
+                <p>Cors can be added in startup to allow cros origin access to the API</p>
+                <p>The application is deployed on Azuer, you can access it via https://todolistapplication20211130222711.azurewebsites.net</p>
             </div>
         );
     }

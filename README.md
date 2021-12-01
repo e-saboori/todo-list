@@ -20,3 +20,7 @@ is using the interface, meaning that any implementation of that interface (ex: u
 
 ## How to start the solution
 Open the project using Visual Studio that supports .Net5. Start the project - it might take sometime to get npm packages
+
+## Remarks
+Cors can be added in startup to allow cros origin access to the API
+The application is deployed on Azuer, you can access it via https://todolistapplication20211130222711.azurewebsites.net
